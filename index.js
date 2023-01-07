@@ -1,15 +1,15 @@
 let arrOfX = [];
 let arrOfY = [];
-function login () {
+function login() {
   location.href = "/main_screen.html";
 }
 
-function flip () {
+function flip() {
   var flip = document.getElementById("hello_there");
-  flip.classList.toggle('flipped'); 
-  
-  document.getElementById("welcome_card").classList.toggle('hide');
-  document.getElementById("welcome_card_back").classList.toggle('show');
+  flip.classList.toggle("flipped");
+
+  document.getElementById("welcome_card").classList.toggle("hide");
+  document.getElementById("welcome_card_back").classList.toggle("show");
 }
 
 function input() {
@@ -17,7 +17,7 @@ function input() {
   let errorOfX = document.getElementById("errorOfX");
   let dataOfY = document.getElementById("input_Y");
   let errorOfY = document.getElementById("errorOfY");
-  let check=0;
+  let check = 0;
 
   if (dataOfX.value.trim().length) {
     arrOfX = dataOfX.value.replaceAll(" ", "").split(",");
@@ -25,7 +25,7 @@ function input() {
     errorOfX.innerHTML = "plese eneter valid input";
     check++;
   }
-  
+
   for (let index = 0; index < arrOfX.length; index++) {
     if (arrOfX[index].length === 0) {
       arrOfX[index] = 0;
@@ -50,66 +50,64 @@ function input() {
   }
 
   arrOfX.forEach((value, index) => {
-    if(!arrOfY[index]){
-      return arrOfY[index] = 0
+    if (!arrOfY[index]) {
+      return (arrOfY[index] = 0);
     } else {
-      return arrOfY[index]
+      return arrOfY[index];
     }
-  })
-  
+  });
+
   arrOfY.forEach((value, index) => {
-    if(!arrOfX[index]){
-      return arrOfX[index] = 0
+    if (!arrOfX[index]) {
+      return (arrOfX[index] = 0);
     } else {
-      return arrOfX[index]
+      return arrOfX[index];
     }
-  })
+  });
 
   if (check === 0) {
     flip();
   }
-  
-  return arrOfX,arrOfY;
+
+  return arrOfX, arrOfY;
 }
 
-function output() { 
+function output() {
+  let tHead = document.getElementById("output_table_head");
+  let tBody = document.getElementById("output_table_body");
 
-  let tHead=document.getElementById('output_table_head');
-  let tBody=document.getElementById('output_table_body');
- 
-  if (document.getElementById('rd1').checked == true) {
-    document.getElementById('hello_there').classList.toggle('hide');
-    document.getElementById('output').classList.toggle('show');
+  if (document.getElementById("rd1").checked == true) {
+    document.getElementById("hello_there").classList.toggle("hide");
+    document.getElementById("output").classList.toggle("show");
 
-    tHead.innerHTML="<th>Xi</th> <th>Yi</th> <th>Xi*Yi</th>";
-    
-    arrOfX.forEach((ValueOfX,index) => {
+    tHead.innerHTML = "<th>Xi</th> <th>Yi</th> <th>Xi*Yi</th>";
+
+    arrOfX.forEach((ValueOfX, index) => {
       let sOfX = 0;
-      sOfX+=ValueOfX;
+      sOfX += ValueOfX;
       tBody.innerHTML += `
       <tr>
         <td>${ValueOfX}</td>
         <td>${arrOfY[index]}</td>
         <td>${ValueOfX * ValueOfX}</td>
-      </tr>`
-    }
-  );
-  } else if (document.getElementById('rd2').checked == true) {
+      </tr>`;
+    });
+  } else if (document.getElementById("rd2").checked == true) {
     console.log(2);
-    document.getElementById('hello_there').classList.toggle('hide');
-  } else if (document.getElementById('rd3').checked == true) {
+    document.getElementById("hello_there").classList.toggle("hide");
+  } else if (document.getElementById("rd3").checked == true) {
     console.log(3);
-    document.getElementById('hello_there').classList.toggle('hide');
-  } else if (document.getElementById('rd4').checked == true) {
+    document.getElementById("hello_there").classList.toggle("hide");
+  } else if (document.getElementById("rd4").checked == true) {
     console.log(4);
-    document.getElementById('hello_there').classList.toggle('hide');
-  } else if (document.getElementById('rd5').checked == true) {
+    document.getElementById("hello_there").classList.toggle("hide");
+  } else if (document.getElementById("rd5").checked == true) {
     console.log(5);
-    document.getElementById('hello_there').classList.toggle('hide');
-  } else if (document.getElementById('rd6').checked == true) {
+    document.getElementById("hello_there").classList.toggle("hide");
+  } else if (document.getElementById("rd6").checked == true) {
     console.log(6);
-    document.getElementById('hello_there').classList.toggle('hide');
+    document.getElementById("hello_there").classList.toggle("hide");
   } else {
-    console.log('Please select any one');
+    console.log("Please select any one");
   }
 }
