@@ -1,5 +1,5 @@
 .login_body {
-  background-image: url('/bg_first_screen.png');
+  background-image: url('/image/bg_first_screen1.jpg');
   background-size: 100%;
   max-width: 100%;
   max-height: 100%;
@@ -81,7 +81,7 @@ input:focus-visible {
 /*main_screen.html styeles*/
 
 .main_screen_body {
-  background-image: url('/bg_first_screen.png');
+  background-image: url('/image/bg_first_screen1.jpg');
   background-size: 100%;
   max-width: 100%;
   height: 100%;
