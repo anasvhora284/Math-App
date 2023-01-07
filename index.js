@@ -1,7 +1,7 @@
 let arrOfX = [];
 let arrOfY = [];
 function login() {
-  location.href = "/main_screen.html";
+  location.href = "main_screen.html";
 }
 
 function flip() {
@@ -82,8 +82,8 @@ function output() {
 
     tHead.innerHTML = "<th>Xi</th> <th>Yi</th> <th>Xi*Yi</th>";
 
+    let sOfX = 0;
     arrOfX.forEach((ValueOfX, index) => {
-      let sOfX = 0;
       sOfX += ValueOfX;
       tBody.innerHTML += `
       <tr>
@@ -91,6 +91,7 @@ function output() {
         <td>${arrOfY[index]}</td>
         <td>${ValueOfX * ValueOfX}</td>
       </tr>`;
+      document.getElementById("sOfX").innerHTML = "The sum of Xi=" + sOfX;
     });
   } else if (document.getElementById("rd2").checked == true) {
     console.log(2);
