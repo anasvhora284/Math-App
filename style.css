@@ -1,0 +1,208 @@
+.login_body {
+  background-image: url('/bg_first_screen.png');
+  background-size: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.login_card {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  height: 70%;
+  width: 35%;
+  background-color: #333333;
+  color: #EEEEEE;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 35px -3px #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+input#email_input{
+  width: 70%;
+  background: transparent;
+  border-color: white;
+  border-radius: 2rem;
+  justify-content: center;
+  padding: 20px 0 20px 30px;
+}
+input:focus-visible {
+  outline: none;
+}
+
+.forgot_pass_n_btn {
+  position: relative !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8%;
+  width: 55%;
+  justify-content: space-around;
+}
+
+.forgot_pass_n_btn > button , .forgot_pass_n_btn > button:hover , .forgot_pass_n_btn > button:active{
+  background-color: #4269E2 !important;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  border-radius: 2rem;
+  outline: 0px !important;
+  width: 40%;
+}
+
+.forgot_pass_n_btn > span {
+  font-size: 13px;
+  color: #EEEEEE !important;
+}
+
+.login_card  a:link {
+  color: #EEEEEE;
+  background-color: transparent;
+}
+.login_card  a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: underline;
+}
+.login_card  a:hover {
+  color: #EEEEEE;
+  background-color: transparent;
+}
+.login_card  a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/*main_screen.html styeles*/
+
+.main_screen_body {
+  background-image: url('/bg_first_screen.png');
+  background-size: 100%;
+  max-width: 100%;
+  height: 100%;
+  color: #FBFBFB;
+  flex-direction: column;
+  font-family: 'Poppins';
+  position: absolute;
+}
+
+.hello_there {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.card {
+  background-color: #333333 !important;
+  outline: none;
+  border: none;
+  color: #c3c746;
+  min-width: 35% !important;
+}
+
+.card-text {
+  font-weight: 500;
+  color: #31a37c;
+}
+
+.input_field {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+#input_X, #input_X:focus, #input_X:active , #input_Y, #input_Y:focus, #input_Y:active {
+  outline: none;
+  background-color: transparent;
+  border-radius: 2rem;
+  width: 80%;
+  margin-left: 20px;
+
+  /*input Box Design*/
+  padding: 10px 0 10px 20px;
+  border-color: white;
+  color: #31a37c;
+  font-weight: 500;
+  font-size: large;
+}
+
+.btn_container button {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  border-radius: 2rem;
+  outline: 0px !important;
+  width: 30%;
+  padding: 1rem .75rem;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+/*card back designs*/
+
+.welcome_card_back {
+  display: none !important;
+  color: #c3c746 !important;
+  transform: rotateY(180deg);
+}
+
+.welcome_card_back input:checked, .welcome_card_back input::before {
+  accent-color:  #31a37c !important;
+}
+
+.radio-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio_in {
+  cursor: pointer;
+}
+
+.radio-input_fix {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 100px !important;
+}
+
+.output {
+  display: none;
+}
+
+.hide {
+  display: none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+table {
+  min-width: 300px;
+  border-collapse: collapse;
+  border: 1px solid #c3c746;
+}
+
+th, td {
+  min-width: 100px;
+  text-align: center !important;
+}
+
+th {
+  background-color: #c3c746;
+  color: black;
+}
+
+#output .card {
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
