@@ -1,8 +1,7 @@
 .login_body {
-  background-image: url('/image/bg_first_screen1.jpg');
-  background-size: 100%;
-  max-width: 100%;
-  max-height: 100%;
+  background: url('image/bg_first_screen1.jpg') no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
 .login_card {
@@ -81,19 +80,17 @@ input:focus-visible {
 /*main_screen.html styeles*/
 
 .main_screen_body {
-  background-image: url('/image/bg_first_screen1.jpg');
-  background-size: 100%;
-  max-width: 100%;
-  height: 100%;
+  background: url('image/bg_first_screen1.jpg') no-repeat;
+  background-size: cover;
+  height: 100vh !important;
   color: #FBFBFB;
   flex-direction: column;
   font-family: 'Poppins';
-  position: absolute;
 }
 
 .hello_there {
-  height: 100% !important;
-  width: 100% !important;
+  /* height: 100% !important;
+  width: 100% !important; */
 }
 
 .card {
@@ -176,6 +173,11 @@ input:focus-visible {
   display: none;
 }
 
+.output_body {
+  display: flex;
+  justify-content: space-between;
+}
+
 .hide {
   display: none !important;
 }
@@ -192,6 +194,7 @@ table {
 
 th, td {
   min-width: 100px;
+  font-size: larger;
   text-align: center !important;
 }
 
