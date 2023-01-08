@@ -88,9 +88,8 @@ input:focus-visible {
   font-family: 'Poppins';
 }
 
-.hello_there {
-  /* height: 100% !important;
-  width: 100% !important; */
+.hello_text_div {
+  margin: auto 5%;
 }
 
 .card {
@@ -104,6 +103,7 @@ input:focus-visible {
 .card-text {
   font-weight: 500;
   color: #31a37c;
+  text-align: justify;
 }
 
 .input_field {
@@ -111,6 +111,13 @@ input:focus-visible {
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: flex-start;
+}
+
+.input_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #input_X, #input_X:focus, #input_X:active , #input_Y, #input_Y:focus, #input_Y:active {
@@ -140,6 +147,13 @@ input:focus-visible {
 
 .flipped {
   transform: rotateY(180deg);
+}
+
+#errorOfX, #errorOfY {
+  color: red;
+  align-self: center;
+  justify-self: center;
+  font-size: larger;
 }
 
 /*card back designs*/
@@ -175,7 +189,7 @@ input:focus-visible {
 
 .output_body {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .hide {
@@ -207,5 +221,4 @@ th {
   min-height: 300px;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
