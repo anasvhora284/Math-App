@@ -21,27 +21,45 @@
     <div class="card" id="hello_there" style="width: 18rem">
       <!--Card Front Body-->
 
-      <div id="welcome_card" class="welcome_card card-body">
-        <h3 class="card-title">Hello there!</h3>
-        <p class="card-text">
-          This website is designd to make your calculations faster! Here you can
-          Calculate Mean, Median, Mod, CoRelation CoEfficient & many more.
-          <br />
-          <br />
-          Pleae Enter the data of X and Y in Below Field. <br />
-          I.E:- X: 1, 2, 3, 4 & Y: 5, 6, 7, 8
-        </p>
+      <div id="welcome_card" class="welcome_card container card-body">
+        <div class="hello_text_div">
+          <h3 class="card-title">Hello there!</h3>
+          <p class="card-text">
+            This website is designd to make your calculations faster! Here you
+            can Calculate Mean, Median, Mod, CoRelation CoEfficient & many more.
+            <br />
+            <br />
+            Pleae Enter the data of X and Y in Below Field. <br />
+            I.E:- X: 1, 2, 3, 4 & Y: 5, 6, 7, 8
+          </p>
+        </div>
 
-        <div class="input_container">
-          <div class="input_field mb-2 d-flex align-items-center">
+        <div class="input_container mt-3">
+          <div
+            class="input_field mb-2 d-flex justify-content-center align-items-center w-100"
+          >
             <h5>X:</h5>
-            <input autocomplete="off" type="text" name="Input_X" id="input_X" />
+            <input
+              autocomplete="off"
+              type="text"
+              name="Input_X"
+              placeholder="1,2,3,4"
+              id="input_X"
+            />
           </div>
           <p id="errorOfX"></p>
 
-          <div class="input_field d-flex align-items-center">
+          <div
+            class="input_field d-flex justify-content-center align-items-center w-100"
+          >
             <h5>Y:</h5>
-            <input autocomplete="off" type="text" name="Input_Y" id="input_Y" />
+            <input
+              autocomplete="off"
+              type="text"
+              name="Input_Y"
+              placeholder="5,6,7,8"
+              id="input_Y"
+            />
           </div>
           <p id="errorOfY"></p>
         </div>
@@ -157,6 +175,7 @@
             <h4 id="sOfX"></h4>
             <h4 id="sOfY"></h4>
             <h4 id="sOfXY"></h4>
+            <h4 id="main_output"></h4>
           </div>
         </div>
       </div>

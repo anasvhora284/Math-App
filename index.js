@@ -75,6 +75,10 @@ function input() {
 function output() {
   let tHead = document.getElementById("output_table_head");
   let tBody = document.getElementById("output_table_body");
+  let sOfX = 0,
+    sOfY = 0,
+    sOfXY = 0,
+    mean = 0;
 
   if (document.getElementById("rd1").checked == true) {
     document.getElementById("hello_there").classList.toggle("hide");
@@ -82,26 +86,82 @@ function output() {
 
     tHead.innerHTML = "<th>Xi</th> <th>Yi</th> <th>Xi*Yi</th>";
 
-    let sOfX = 0;
     arrOfX.forEach((ValueOfX, index) => {
       sOfX += ValueOfX;
+      sOfY += arrOfY[index];
+      sOfXY += ValueOfX * arrOfY[index];
+
       tBody.innerHTML += `
       <tr>
         <td>${ValueOfX}</td>
         <td>${arrOfY[index]}</td>
         <td>${ValueOfX * ValueOfX}</td>
       </tr>`;
-      document.getElementById("sOfX").innerHTML = "The sum of Xi=" + sOfX;
     });
-  } else if (document.getElementById("rd2").checked == true) {
-    console.log(2);
+
+    mean = sOfXY / sOfY;
+
+    document.getElementById("sOfX").innerHTML = "The sum of Xi=" + sOfX;
+    document.getElementById("sOfY").innerHTML = "The sum of Yi=" + sOfY;
+    document.getElementById("sOfXY").innerHTML = "The sum of Xi*Yi=" + sOfXY;
+    document.getElementById("main_output").innerHTML =
+      "The Mean of the data=" + mean.toFixed(4);
+  } /* For Median*/ else if (document.getElementById("rd2").checked == true) {
     document.getElementById("hello_there").classList.toggle("hide");
+    document.getElementById("output").classList.toggle("show");
+
+    tHead.innerHTML = "<th>Xi</th> <th>Yi</th> <th>C.F</th>";
+
+    arrOfX.forEach((ValueOfX, index) => {
+      sOfX += ValueOfX;
+      sOfY += arrOfY[index];
+      sOfXY += ValueOfX * arrOfY[index];
+
+      tBody.innerHTML += `
+      <tr>
+        <td>${ValueOfX}</td>
+        <td>${arrOfY[index]}</td>
+        <td>${sOfY}</td>
+      </tr>`;
+    });
+
+    document.getElementById("sOfY").innerHTML = "The sum of Yi aka N=" + sOfY;
   } else if (document.getElementById("rd3").checked == true) {
     console.log(3);
     document.getElementById("hello_there").classList.toggle("hide");
-  } else if (document.getElementById("rd4").checked == true) {
-    console.log(4);
+  } /*Standard Deviation*/ else if (
+    document.getElementById("rd4").checked == true
+  ) {
     document.getElementById("hello_there").classList.toggle("hide");
+    document.getElementById("output").classList.toggle("show");
+
+    let ans = 0;
+
+    tHead.innerHTML = "<th>Xi</th> <th>Yi</th> <th>Xi*Yi</th>";
+
+    arrOfX.forEach((ValueOfX, index) => {
+      sOfX += ValueOfX;
+      sOfY += arrOfY[index];
+      sOfXY += ValueOfX * arrOfY[index];
+
+      tBody.innerHTML += `
+      <tr>
+        <td>${ValueOfX}</td>
+        <td>${arrOfY[index]}</td>
+        <td>${ValueOfX * ValueOfX}</td>
+      </tr>`;
+    });
+
+    mean = sOfXY / sOfY;
+
+    arrOfX.forEach((ValueOfX, index) => {
+      ans = Math.pow(ValueOfX - mean, 2);
+    });
+
+    let standardDeviation = Math.sqrt(ans / (arrOfY.length - 1));
+
+    document.getElementById("main_output").innerHTML =
+      `Standard Deviation of the data is = ` + standardDeviation.toFixed(4);
   } else if (document.getElementById("rd5").checked == true) {
     console.log(5);
     document.getElementById("hello_there").classList.toggle("hide");
