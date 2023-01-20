@@ -1,15 +1,18 @@
 let arrOfX = [];
 let arrOfY = [];
+
 function login() {
   location.href = "main_screen.html";
 }
 
 function flip() {
-  var flip = document.getElementById("hello_there");
-  flip.classList.toggle("flipped");
-
   document.getElementById("welcome_card").classList.toggle("hide");
   document.getElementById("welcome_card_back").classList.toggle("show");
+}
+
+function pflip() {
+  document.getElementById("welcome_card").classList.toggle("show");
+  document.getElementById("welcome_card_back").classList.toggle("hide");
 }
 
 function input() {
@@ -73,6 +76,7 @@ function input() {
 }
 
 function output() {
+  document.getElementById("welcome_card_back").style = "display: none;"
   let tHead = document.getElementById("output_table_head");
   let tBody = document.getElementById("output_table_body");
   let sOfX = 0,
@@ -81,7 +85,7 @@ function output() {
     mean = 0;
 
   if (document.getElementById("rd1").checked == true) {
-    document.getElementById("hello_there").classList.toggle("hide");
+    document.getElementById("welcome_card_back").classList.toggle("hide");
     document.getElementById("output").classList.toggle("show");
 
     tHead.innerHTML = "<th>Xi</th> <th>Yi</th> <th>Xi*Yi</th>";
@@ -171,4 +175,9 @@ function output() {
   } else {
     console.log("Please select any one");
   }
+}
+
+function previous () {
+  document.getElementById("output").style="display: none"
+  document.getElementById("welcome_card_back").style="display: block";
 }

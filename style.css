@@ -34,7 +34,7 @@ input:focus-visible {
 }
 
 .forgot_pass_n_btn {
-  position: relative !important;
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -93,11 +93,14 @@ input:focus-visible {
 }
 
 .card {
+  width: 18rem;
   background-color: #333333 !important;
   outline: none;
   border: none;
   color: #c3c746;
   min-width: 35% !important;
+  max-width: auto;
+  border-radius: 20%;
 }
 
 .card-text {
@@ -145,10 +148,6 @@ input:focus-visible {
   padding: 1rem .75rem;
 }
 
-.flipped {
-  transform: rotateY(180deg);
-}
-
 #errorOfX, #errorOfY {
   color: red;
   align-self: center;
@@ -159,9 +158,8 @@ input:focus-visible {
 /*card back designs*/
 
 .welcome_card_back {
-  display: none !important;
+  display: none;
   color: #c3c746 !important;
-  transform: rotateY(180deg);
 }
 
 .welcome_card_back input:checked, .welcome_card_back input::before {
@@ -185,6 +183,7 @@ input:focus-visible {
 
 .output {
   display: none;
+  padding: 16px;
 }
 
 .output_body {
@@ -193,11 +192,11 @@ input:focus-visible {
 }
 
 .hide {
-  display: none !important;
+  display: none;
 }
 
 .show {
-  display: block !important;
+  display: block;
 }
 
 table {
@@ -217,8 +216,3 @@ th {
   color: black;
 }
 
-#output .card {
-  min-height: 300px;
-  display: flex;
-  justify-content: center;
-}

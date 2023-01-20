@@ -18,7 +18,7 @@
   >
     <!--Take input for X & Y and chose the option card-->
 
-    <div class="card" id="hello_there" style="width: 18rem">
+    <div class="card" id="hello_there">
       <!--Card Front Body-->
 
       <div id="welcome_card" class="welcome_card container card-body">
@@ -145,7 +145,7 @@
         <div class="btn_container mt-5 d-flex justify-content-sm-between">
           <button
             type="button"
-            onclick="flip()"
+            onclick="pflip()"
             class="nxt_btn btn btn-primary"
           >
             &lt; Previous
@@ -159,24 +159,31 @@
           </button>
         </div>
       </div>
-    </div>
 
-    <!--Output Screen-->
-
-    <div class="output container justify-content-center" id="output">
-      <div class="card h-100 w-100">
+      <!--Output Screen-->
+  
+      <div class="output justify-content-center" id="output">
         <div class="output_body">
           <table class="output_table" id="output_table">
             <thead class="output_table_head" id="output_table_head"></thead>
             <tbody class="output_table_body" id="output_table_body"></tbody>
           </table>
-
+  
           <div class="sum_of">
             <h4 id="sOfX"></h4>
             <h4 id="sOfY"></h4>
             <h4 id="sOfXY"></h4>
             <h4 id="main_output"></h4>
           </div>
+        </div>
+        <div class="btn_container mt-5 d-flex justify-content-sm-between">
+          <button
+            type="button"
+            onclick="previous()"
+            class="nxt_btn btn btn-primary"
+          >
+            &lt; Previous
+          </button>
         </div>
       </div>
     </div>
