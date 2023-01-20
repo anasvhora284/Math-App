@@ -188,7 +188,7 @@ input:focus-visible {
 
 .output_body {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .hide {
@@ -197,6 +197,10 @@ input:focus-visible {
 
 .show {
   display: block;
+}
+
+.outputCardDesign {
+  width: 80%;
 }
 
 table {

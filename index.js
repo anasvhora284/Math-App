@@ -76,7 +76,9 @@ function input() {
 }
 
 function output() {
-  document.getElementById("welcome_card_back").style = "display: none;"
+  document.getElementById("welcome_card_back").style = "display: none;";
+  document.getElementById("hello_there").classList.toggle("outputCardDesign");
+
   let tHead = document.getElementById("output_table_head");
   let tBody = document.getElementById("output_table_body");
   let sOfX = 0,
@@ -110,8 +112,9 @@ function output() {
     document.getElementById("sOfXY").innerHTML = "The sum of Xi*Yi=" + sOfXY;
     document.getElementById("main_output").innerHTML =
       "The Mean of the data=" + mean.toFixed(4);
-  } /* For Median*/ else if (document.getElementById("rd2").checked == true) {
-    document.getElementById("hello_there").classList.toggle("hide");
+  } /////////* For Median*/////////
+  else if (document.getElementById("rd2").checked == true) {
+    document.getElementById("welcome_card_back").classList.toggle("hide");
     document.getElementById("output").classList.toggle("show");
 
     tHead.innerHTML = "<th>Xi</th> <th>Yi</th> <th>C.F</th>";
@@ -129,19 +132,31 @@ function output() {
       </tr>`;
     });
 
-    document.getElementById("sOfY").innerHTML = "The sum of Yi aka N=" + sOfY;
-  } else if (document.getElementById("rd3").checked == true) {
-    console.log(3);
-    document.getElementById("hello_there").classList.toggle("hide");
-  } /*Standard Deviation*/ else if (
-    document.getElementById("rd4").checked == true
-  ) {
-    document.getElementById("hello_there").classList.toggle("hide");
+    document.getElementById("sOfY").innerHTML =
+      "The sum of  Yi aka N = " + sOfY;
+
+    let ans = sOfY / 2;
+    document.getElementById("n/2").innerHTML = "N/2 = " + ans;
+
+    sOfY = 0;
+
+    for (let index = 0; index < arrOfX.length; index++) {
+      sOfY += arrOfY[index];
+
+      if (sOfY < ans) {
+        continue;
+      } else {
+        document.getElementById("main_output").innerHTML =
+          "Median of the given data is = " + arrOfX[index];
+        break;
+      }
+    }
+  } /////////* For Mod*/////////
+  else if (document.getElementById("rd3").checked == true) {
+    document.getElementById("welcome_card_back").classList.toggle("hide");
     document.getElementById("output").classList.toggle("show");
 
-    let ans = 0;
-
-    tHead.innerHTML = "<th>Xi</th> <th>Yi</th> <th>Xi*Yi</th>";
+    tHead.innerHTML = "<th>Xi</th> <th>Yi</th>";
 
     arrOfX.forEach((ValueOfX, index) => {
       sOfX += ValueOfX;
@@ -152,11 +167,47 @@ function output() {
       <tr>
         <td>${ValueOfX}</td>
         <td>${arrOfY[index]}</td>
-        <td>${ValueOfX * ValueOfX}</td>
       </tr>`;
     });
 
+    let ans = Math.max(...arrOfY);
+
+    for (let index = 0; index < arrOfX.length; index++) {
+      if (arrOfY[index] === ans) {
+        document.getElementById(
+          "main_output"
+        ).innerHTML = `Median of the given data is = ${arrOfX[index]} <br> As it has the highest frequency. `;
+        break;
+      } else {
+        continue;
+      }
+    }
+  } /*////////////////*Standard Deviation*/ ////////////////////////////*/
+  else if (document.getElementById("rd4").checked == true) {
+    document.getElementById("welcome_card_back").classList.toggle("hide");
+    document.getElementById("output").classList.toggle("show");
+
+    let ans = 0;
+
+    tHead.innerHTML =
+      "<th>Xi</th> <th>Yi</th> <th>Xi*Yi</th> <th>(Xi - mean)<sup>2</sup></th>";
+
+    arrOfX.forEach((ValueOfX, index) => {
+      sOfX += ValueOfX;
+      sOfY += arrOfY[index];
+      sOfXY += ValueOfX * arrOfY[index];
+    });
     mean = sOfXY / sOfY;
+
+    arrOfX.forEach((ValueOfX, index) => {
+      tBody.innerHTML += `
+      <tr>
+      <td>${ValueOfX}</td>
+      <td>${arrOfY[index]}</td>
+      <td>${ValueOfX * arrOfY[index]}</td>
+      <td>${Math.pow(ValueOfX - mean, 2).toFixed(4)}</td>
+      </tr>`;
+    });
 
     arrOfX.forEach((ValueOfX, index) => {
       ans = Math.pow(ValueOfX - mean, 2);
@@ -164,20 +215,25 @@ function output() {
 
     let standardDeviation = Math.sqrt(ans / (arrOfY.length - 1));
 
-    document.getElementById("main_output").innerHTML =
-      `Standard Deviation of the data is = ` + standardDeviation.toFixed(4);
+    document.getElementById(
+      "main_output"
+    ).innerHTML = `Mean of the data is ${mean.toFixed(4)} 
+    <br>So, according to formula of S.D = square root of (&sum; (Xi - mean)<sup>2</sup> / n-1).
+    <br>So, according to formula of 
+    S.D = &radic; ${ans}/ ${arrOfY.length} - 1.  
+    <br> Standard Deviation of the data is = ${standardDeviation.toFixed(4)}`;
   } else if (document.getElementById("rd5").checked == true) {
     console.log(5);
-    document.getElementById("hello_there").classList.toggle("hide");
+    document.getElementById("welcome_card_back").classList.toggle("hide");
   } else if (document.getElementById("rd6").checked == true) {
     console.log(6);
-    document.getElementById("hello_there").classList.toggle("hide");
+    document.getElementById("welcome_card_back").classList.toggle("hide");
   } else {
     console.log("Please select any one");
   }
 }
 
-function previous () {
-  document.getElementById("output").style="display: none"
-  document.getElementById("welcome_card_back").style="display: block";
+function previous() {
+  document.getElementById("output").style = "display: none";
+  document.getElementById("welcome_card_back").style = "display: block";
 }
