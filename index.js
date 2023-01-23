@@ -1,6 +1,23 @@
 let arrOfX = [];
 let arrOfY = [];
 
+const getRadioBtnValues = () => {
+  
+  var radioBtn1 = document.getElementById('rd1').checked;
+  var radioBtn2 = document.getElementById('rd2').checked;
+  var radioBtn3 = document.getElementById('rd3').checked;
+  var radioBtn4 = document.getElementById('rd4').checked;
+  var radioBtn5 = document.getElementById('rd5').checked;
+  var radioBtn6 = document.getElementById('rd6').checked;
+  
+  console.log(radioBtn1);
+  console.log(radioBtn2);
+  console.log(radioBtn3);
+  console.log(radioBtn4);
+  console.log(radioBtn5);
+  console.log(radioBtn6);
+}
+
 function login() {
   location.href = "main_screen.html";
 }
@@ -8,11 +25,6 @@ function login() {
 function flip() {
   document.getElementById("welcome_card").classList.toggle("hide");
   document.getElementById("welcome_card_back").classList.toggle("show");
-}
-
-function pflip() {
-  document.getElementById("welcome_card").classList.toggle("show");
-  document.getElementById("welcome_card_back").classList.toggle("hide");
 }
 
 function input() {
@@ -218,13 +230,55 @@ function output() {
     document.getElementById(
       "main_output"
     ).innerHTML = `Mean of the data is ${mean.toFixed(4)} 
-    <br>So, according to formula of S.D = square root of (&sum; (Xi - mean)<sup>2</sup> / n-1).
+    <br>So, according to formula of S.D = &radic; ( &sum;(Xi - mean)<sup>2</sup> / n-1 ).
     <br>So, according to formula of 
     S.D = &radic; ${ans}/ ${arrOfY.length} - 1.  
     <br> Standard Deviation of the data is = ${standardDeviation.toFixed(4)}`;
-  } else if (document.getElementById("rd5").checked == true) {
-    console.log(5);
+  } /*////////////////*CoRelation CoEfficient*/ ////////////////////////////*/
+  else if (document.getElementById("rd5").checked == true) {
     document.getElementById("welcome_card_back").classList.toggle("hide");
+    document.getElementById("output").classList.toggle("show");
+
+    let sX2 = 0,sY2=0,sOfX=0;sOfY=0,sOfXY=0 
+    arrOfX.length >= arrOfY.length ? (n = arrOfX.length) : (n = arrOfY.length);
+
+    for (let i = 0; i < arrOfX.length; i++) {
+      sOfX += arrOfX[i];
+      sOfY += arrOfY[i];
+      sX2 += arrOfX[i] * arrOfX[i];
+      sY2 += arrOfY[i] * arrOfY[i];
+      sOfXY += arrOfX[i] * arrOfY[i];
+    }
+
+    let co_rel_efficient =
+      (sOfXY - (sOfX * sOfY) / n) /
+      (Math.sqrt(sX2 - (sOfX * sOfX) / n) * Math.sqrt(sY2 - (sOfY * sOfY) / n));
+
+      console.log (2);
+    tHead.innerHTML =
+      "<th>Xi</th> <th>Yi</th> <th>Xi<sup>2</sup></th> <th>Yi<sup>2</sup></th> <th>Xi*Yi</th>";
+
+    arrOfX.forEach((ValueOfX, index) => {
+        tBody.innerHTML += `
+        <tr>
+          <td>${ValueOfX}</td>
+          <td>${arrOfY[index]}</td>
+          <td>${ValueOfX * ValueOfX}</td>
+          <td>${arrOfY[index] * arrOfY[index]}</td>
+          <td>${ValueOfX * arrOfY[index]}</td>
+      </tr>`;
+    });
+
+    document.getElementById("sOfX").innerHTML = "Sum Of X :" + sOfX;
+    document.getElementById("sOfY").innerHTML = "Sum Of Y :" + sOfY;
+    document.getElementById("sOfXY").innerHTML = "Sum Of XY :" + sOfXY;
+    document.getElementById("main_output").innerHTML = `Sum Of X2 : ${sX2}. 
+    <br>Sum Of Y2 : ${sY2}.
+    <br> Karl Prearson's Correlation Coefficient: ${co_rel_efficient.toFixed(4)}.`;
+
+    console.log (tHead);
+    console.log (tBody );
+
   } else if (document.getElementById("rd6").checked == true) {
     console.log(6);
     document.getElementById("welcome_card_back").classList.toggle("hide");
@@ -236,4 +290,5 @@ function output() {
 function previous() {
   document.getElementById("output").style = "display: none";
   document.getElementById("welcome_card_back").style = "display: block";
+  getRadioBtnValues()
 }
