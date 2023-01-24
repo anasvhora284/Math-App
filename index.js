@@ -94,9 +94,10 @@ function output() {
   let tHead = document.getElementById("output_table_head");
   let tBody = document.getElementById("output_table_body");
   let sOfX = 0,
-    sOfY = 0,
-    sOfXY = 0,
-    mean = 0;
+      sOfY = 0,
+      sOfXY = 0,
+      mean = 0
+    ;
 
   if (document.getElementById("rd1").checked == true) {
     document.getElementById("welcome_card_back").classList.toggle("hide");
@@ -119,9 +120,9 @@ function output() {
 
     mean = sOfXY / sOfY;
 
-    document.getElementById("sOfX").innerHTML = "The sum of Xi=" + sOfX;
-    document.getElementById("sOfY").innerHTML = "The sum of Yi=" + sOfY;
-    document.getElementById("sOfXY").innerHTML = "The sum of Xi*Yi=" + sOfXY;
+    document.getElementById("sOfX").innerHTML = "The &sum; Xi=" + sOfX;
+    document.getElementById("sOfY").innerHTML = "The &sum; Yi=" + sOfY;
+    document.getElementById("sOfXY").innerHTML = "The &sum; Xi*Yi=" + sOfXY;
     document.getElementById("main_output").innerHTML =
       "The Mean of the data=" + mean.toFixed(4);
   } /////////* For Median*/////////
@@ -145,7 +146,7 @@ function output() {
     });
 
     document.getElementById("sOfY").innerHTML =
-      "The sum of  Yi aka N = " + sOfY;
+      "The &sum;  Yi aka N = " + sOfY;
 
     let ans = sOfY / 2;
     document.getElementById("n/2").innerHTML = "N/2 = " + ans;
@@ -229,7 +230,7 @@ function output() {
 
     document.getElementById(
       "main_output"
-    ).innerHTML = `Mean of the data is ${mean.toFixed(4)} 
+    ).innerHTML = `Mean of the data is = ${mean.toFixed(4)} 
     <br>So, according to formula of S.D = &radic; ( &sum;(Xi - mean)<sup>2</sup> / n-1 ).
     <br>So, according to formula of 
     S.D = &radic; ${ans}/ ${arrOfY.length} - 1.  
@@ -269,11 +270,11 @@ function output() {
       </tr>`;
     });
 
-    document.getElementById("sOfX").innerHTML = "Sum Of X :" + sOfX;
-    document.getElementById("sOfY").innerHTML = "Sum Of Y :" + sOfY;
-    document.getElementById("sOfXY").innerHTML = "Sum Of XY :" + sOfXY;
-    document.getElementById("main_output").innerHTML = `Sum Of X2 : ${sX2}. 
-    <br>Sum Of Y2 : ${sY2}.
+    document.getElementById("sOfX").innerHTML = "&sum; X :" + sOfX;
+    document.getElementById("sOfY").innerHTML = "&sum; Y :" + sOfY;
+    document.getElementById("sOfXY").innerHTML = "&sum; XY :" + sOfXY;
+    document.getElementById("main_output").innerHTML = `&sum; X2 : ${sX2}. 
+    <br>&sum; Y2 : ${sY2}.
     <br> Karl Prearson's Correlation Coefficient: ${co_rel_efficient.toFixed(4)}.`;
 
     console.log (tHead);

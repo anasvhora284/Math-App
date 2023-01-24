@@ -200,7 +200,8 @@ input:focus-visible {
 }
 
 .outputCardDesign {
-  width: 80%;
+  width: 50%;
+  max-width: auto;
 }
 
 table {
